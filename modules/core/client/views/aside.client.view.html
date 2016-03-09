@@ -6,7 +6,7 @@
       <img ng-src="{{authentication.user.profileImageURL}}" class="img-circle" alt="User Image">
     </div>
     <div class="pull-left info">
-      <p>Jagadeesh Palaniappan</p>
+      <p ng-bind="authentication.user.displayName"></p>
       <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
     </div>
   </div>

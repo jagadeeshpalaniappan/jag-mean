@@ -1,3 +1,4 @@
+
 <div ng-controller="AuthenticationController">
 
 
@@ -11,6 +12,9 @@
 
       <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
 
+        <div ng-show="error" class="text-center text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
 
         <div class="form-group has-feedback" show-errors>
           <label for="firstName">First Name</label>
@@ -66,6 +70,13 @@
           </div>
         </div>
 
+
+        <div class="form-group" ng-show="!userForm.password.$error.required">
+          <label>Password Requirements</label>
+          <uib-progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></uib-progressbar>
+        </div>
+
+
         <input type="checkbox"> I agree to the <a href="#">terms</a>
 
 
@@ -101,7 +112,6 @@
 
 
 
-<!--
 
 <div ng-controller="AuthenticationController">
   <h3 class="col-md-12 text-center">Or sign up using your email</h3>
@@ -158,6 +168,8 @@
           &nbsp; or&nbsp;
           <a ui-sref="authentication.signin" class="show-signup">Sign in</a>
         </div>
+
+
         <div ng-show="error" class="text-center text-danger">
           <strong ng-bind="error"></strong>
         </div>
@@ -165,4 +177,3 @@
     </form>
   </div>
 </div>
--->
