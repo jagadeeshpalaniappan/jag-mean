@@ -1,0 +1,13 @@
+---
+declared-services:
+  mean-mongo:
+    label: mongodb
+    plan: 100
+applications:
+- name: mean-japp2
+  host: mean-japp2
+  memory: 128M
+  services:
+    - mean-mongo
+  env:
+    NODE_ENV: cloud-foundry
