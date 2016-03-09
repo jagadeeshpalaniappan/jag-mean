@@ -45,7 +45,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
       var myMenu = {};
       myMenu.title = item.title;
       myMenu.state = item.state;
-      myMenu.iconClass = 'fa fa-dashboard';
+      myMenu.iconClass = 'fa fa-folder';
 
       if(item.items && item.items.length > 0){
         myMenu.submenu =[];
