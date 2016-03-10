@@ -20,7 +20,7 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(function ($ro
 
     //These 'toState.data.roles' --are configured in each route
     var rolesRequiredToAccessThisState = toState.data? (toState.data.roles? toState.data.roles : 'NO_ROLES_REQUIRED') : 'NO_ROLES_REQUIRED';
-    console.log('State: '+toState.name +' --- Roles Required To Access this State: [+ rolesRequiredToAccessThisState +']');
+    console.log('State: '+toState.name +' --- Roles Required To Access this State: ['+ rolesRequiredToAccessThisState +']');
 
 
     //This state requires user must be 'logged in' and must have enough 'permission' to access
