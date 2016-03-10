@@ -14,7 +14,7 @@ angular.module('core').controller('HomeController', ['$scope','$rootScope','Auth
 
 
     //Since we have ng-include, we have to trigger this after html include completes
-    $rootScope.$on("$includeContentLoaded", function(event, templateName){
+    $rootScope.$on('$includeContentLoaded', function(event, templateName){
       //console.log("included html loaded..");
 
       JThemeUtilService.fixMyAppWidthHeight();
