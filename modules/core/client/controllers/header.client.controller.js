@@ -67,45 +67,45 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
 
     $scope.sideBarMenus = myMenus;
     /*
-    $scope.sideBarMenus =
-        [
-          {
-            'title': 'jHeader',
-            'type': 'header'
-          },
-          {
-            'title': 'Dashboard',
-            'state': 'dashboard',
-            'iconClass': 'fa fa-dashboard'
-          },
-          {
-            'title': 'Widgets',
-            'state': 'widgets',
-            'iconClass': 'fa fa-th',
-            'badge': 'new',
-            'badgeClass': 'bg-green'
-          },
-          {
-            'title': 'Charts',
-            'iconClass': 'fa fa-bar-chart-o',
-            'submenu': [
-              {
-                'title': 'Morris',
-                'state': 'charts.morris',
-                'iconClass': 'fa fa-dashboard'
-              },
-              {
-                'title': 'HighCharts',
-                'state': 'charts.highcharts'
-              },
-              {
-                'title': 'Inline',
-                'state': 'charts.inline'
-              }
-            ]
-          }
-        ];
-*/
+     $scope.sideBarMenus =
+     [
+     {
+     'title': 'jHeader',
+     'type': 'header'
+     },
+     {
+     'title': 'Dashboard',
+     'state': 'dashboard',
+     'iconClass': 'fa fa-dashboard'
+     },
+     {
+     'title': 'Widgets',
+     'state': 'widgets',
+     'iconClass': 'fa fa-th',
+     'badge': 'new',
+     'badgeClass': 'bg-green'
+     },
+     {
+     'title': 'Charts',
+     'iconClass': 'fa fa-bar-chart-o',
+     'submenu': [
+     {
+     'title': 'Morris',
+     'state': 'charts.morris',
+     'iconClass': 'fa fa-dashboard'
+     },
+     {
+     'title': 'HighCharts',
+     'state': 'charts.highcharts'
+     },
+     {
+     'title': 'Inline',
+     'state': 'charts.inline'
+     }
+     ]
+     }
+     ];
+     */
 
 
 
@@ -115,27 +115,38 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
 
     $scope.items = [
       {
-        name: "Item1",
-        state: 'home',
-        subItems: [
-          {name: "SubItem1"},
-          {name: "SubItem2"}
+        "name": "Item1",
+        "state": "home",
+        "subItems": [
+          {
+            "name": "SubItem1"
+          },
+          {
+            "name": "SubItem2"
+          }
         ]
       },
       {
-        name: "Item2",
-        state: 'home',
-        subItems: [
-          {name: "SubItem3"},
-          {name: "SubItem4"},
-          {name: "SubItem5"}
+        "name": "Item2",
+        "state": "home",
+        "subItems": [
+          {
+            "name": "SubItem3"
+          },
+          {
+            "name": "SubItem4"
+          },
+          {
+            "name": "SubItem5"
+          }
         ]
       },
       {
-        name: "Item3",
-        state: 'home'
+        "name": "Item3",
+        "state": "home"
       }
     ];
+
 
   }
 ]);
