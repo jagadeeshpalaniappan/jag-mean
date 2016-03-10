@@ -125,14 +125,34 @@
       </li>
 
 
+
+        <li class="dropdown" uib-dropdown>
+          <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
+            <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
+            <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li ui-sref-active="active" ng-repeat="item in accountMenu.items">
+              <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/api/auth/signout" target="_self">Signout</a>
+            </li>
+          </ul>
+        </li>
+
+
       <!-- User Account: style can be found in dropdown.less -->
 
-      <li class="dropdown user user-menu" ng-show="authentication.user">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <li class="dropdown user user-menu" ng-show="authentication.user" uib-dropdown>
+        <a class="dropdown-toggle" data-toggle="dropdown" uib-dropdown-toggle role="button">
           <img ng-src="{{authentication.user.profileImageURL}}" class="user-image" alt="User Image">
-          <span class="hidden-xs" ng-bind="authentication.user.displayName"></span>
+          <span class="hidden-xs" ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu">
+
+
+        <ul class="dropdown-menu" role="menu">
           <!-- User image -->
           <li class="user-header">
 
@@ -147,13 +167,13 @@
           <li class="user-body">
             <div class="row">
               <div class="col-xs-4 text-center">
-                <a href="#">Followers</a>
+                <a ui-sref="settings.picture">Picture</a>
               </div>
               <div class="col-xs-4 text-center">
-                <a href="#">Sales</a>
+                <a ui-sref="settings.password">Password</a>
               </div>
               <div class="col-xs-4 text-center">
-                <a href="#">Friends</a>
+                <a ui-sref="settings.accounts">Social</a>
               </div>
             </div>
             <!-- /.row -->
@@ -161,7 +181,7 @@
           <!-- Menu Footer-->
           <li class="user-footer">
             <div class="pull-left">
-              <a href="#" class="btn btn-default btn-flat">Profile</a>
+              <a ui-sref="settings.profile" class="btn btn-default btn-flat">Profile</a>
             </div>
             <div class="pull-right">
               <a href="/api/auth/signout" target="_self" class="btn btn-default btn-flat">Sign out</a>
@@ -170,13 +190,19 @@
         </ul>
       </li>
 
+<!--
+
       <li ng-show="authentication.user">
         <a href="/api/auth/signout" target="_self">Signout</a>
       </li>
+      -->
 
     </ul>
 
+</div>
 
+
+  </nav>
 
     <!--
     <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">

@@ -107,5 +107,35 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
         ];
 */
 
+
+
+    $scope.showChilds = function(item){
+      item.active = !item.active;
+    };
+
+    $scope.items = [
+      {
+        name: "Item1",
+        state: 'home',
+        subItems: [
+          {name: "SubItem1"},
+          {name: "SubItem2"}
+        ]
+      },
+      {
+        name: "Item2",
+        state: 'home',
+        subItems: [
+          {name: "SubItem3"},
+          {name: "SubItem4"},
+          {name: "SubItem5"}
+        ]
+      },
+      {
+        name: "Item3",
+        state: 'home'
+      }
+    ];
+
   }
 ]);
