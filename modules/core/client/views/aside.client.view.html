@@ -32,6 +32,101 @@
     </li>
   </ul>
 
+
+
+  <li ng-if="!(item.type=='header')" ng-switch="item.hasSubmenu" ng-class="{'treeview': !item.hasSubmenu, 'active':item.state == currentState}" class="ng-scope active">
+
+
+    <!-- ngSwitchWhen: false -->
+
+
+    <!-- ngSwitchWhen: true --><a ng-switch-when="true" ng-click="item.expanded = !item.expanded; selectMenu(item.state)" class="ng-scope">
+    <i ng-class="item.iconClass" class="fa fa-folder"></i>
+    <span class="ng-binding">Articles</span>
+    <i class="pull-right fa fa-angle-down" ng-class="{ 'fa-angle-left': item.expanded, 'fa-angle-down': !item.expanded }"></i>
+
+  </a><!-- end ngSwitchWhen: -->
+
+    <!-- ngSwitchWhen: true -->
+
+    <ul ng-switch-when="true" ng-class="{'menu-open': item.expanded}" ng-style="item.expanded &amp;&amp; {'display':'block'}" class="treeview-menu ng-scope ng-hide" ng-show="item.expanded">
+    <!-- ngRepeat: subitem in item.submenu --><li ng-repeat="subitem in item.submenu" ng-class="{'active':subitem.state == currentSubState}" class="ng-scope">
+    <a ui-sref="articles.list" ng-click="selectSubMenu(subitem.state)" class="ng-binding" href="/articles">
+      <!-- ngIf: subitem.iconClass -->
+      <!-- ngIf: !subitem.iconClass --><i class="fa fa-circle-o ng-scope" ng-if="!subitem.iconClass"></i><!-- end ngIf: !subitem.iconClass -->
+      List Articles
+    </a>
+  </li><!-- end ngRepeat: subitem in item.submenu --><li ng-repeat="subitem in item.submenu" ng-class="{'active':subitem.state == currentSubState}" class="ng-scope">
+    <a ui-sref="articles.create" ng-click="selectSubMenu(subitem.state)" class="ng-binding" href="/articles/create">
+      <!-- ngIf: subitem.iconClass -->
+      <!-- ngIf: !subitem.iconClass --><i class="fa fa-circle-o ng-scope" ng-if="!subitem.iconClass"></i><!-- end ngIf: !subitem.iconClass -->
+      Create Article
+    </a>
+  </li><!-- end ngRepeat: subitem in item.submenu -->
+  </ul><!-- end ngSwitchWhen: -->
+
+  </li>
+
+
+
+  <ul class="sidebar-menu">
+    <li ng-repeat="item in items" ng-click="showChilds(item)" ng-switch="item.subItems? true : false">
+
+      <a href ng-switch-when="true">
+        <i ng-class="item.iconClass" class="fa fa-folder"></i>
+        <span>{{item.name}}</span>
+        <i class="pull-right fa fa-angle-left" ng-class="{ 'fa-angle-left': item.active, 'fa-angle-down': !item.active }"></i>
+      </a>
+
+      <ul ng-switch-when="true" class="treeview-menu menu-open" ng-style="item.active && {'display':'block'}">
+        <li ng-repeat="subItem in item.subItems" ng-show="item.active">
+          <a ui-sref="{{subitem.state}}">
+            <i class="fa fa-circle-o"></i>
+            <span>{{subItem.name}}</span>
+          </a>
+        </li>
+      </ul>
+
+      <a ng-switch-default ui-sref="{{item.state}}">
+        <i ng-class="item.iconClass" class="fa fa-folder"></i>
+        <span>{{item.name}}</span>
+      </a>
+     </li>
+
+
+    </ul>
+
+
+
+  <ul class="sidebar-menu" ng-if="menu.shouldRender(authentication.user);">
+
+    <li class="header">Header</li>
+
+
+    <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" ng-class="{ active: $state.includes(item.state), treeview: item.type === 'dropdown' }" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
+
+      <a ng-switch-when="dropdown" uib-dropdown-toggle role="button">
+        <i ng-class="item.iconClass" class="fa fa-folder"></i> <span> {{::item.title}} </span>
+        <i class="pull-right fa fa-angle-left" ng-class="{ 'fa-angle-left': item.expanded, 'fa-angle-down': !item.expanded }"></i>
+      </a>
+
+      <ul ng-switch-when="dropdown" class="treeview-menu menu-open" uib-dropdown-toggle>
+        <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
+
+          <a ui-sref="{{subitem.state}}">
+            <i class="fa fa-circle-o ng-scope" ng-if="!subitem.iconClass"></i>
+            {{::subitem.title}}
+          </a>
+        </li>
+      </ul>
+
+      <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
+    </li>
+  </ul>
+
+
+
+
   <j-sidebar-menu menu-items="sideBarMenus">
   </j-sidebar-menu>
 
