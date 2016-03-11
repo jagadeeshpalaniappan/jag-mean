@@ -26,7 +26,7 @@
       })
       .state('articles.create', {
         url: '/create',
-        templateUrl: 'modules/articles/client/views/form-article.client.view.html',
+        templateUrl: 'modules/articles/client/views/create-edit-article.client.view.html',
         controller: 'ArticlesController',
         controllerAs: 'vm',
         resolve: {
@@ -39,7 +39,7 @@
       })
       .state('articles.edit', {
         url: '/:articleId/edit',
-        templateUrl: 'modules/articles/client/views/form-article.client.view.html',
+        templateUrl: 'modules/articles/client/views/create-edit-article.client.view.html',
         controller: 'ArticlesController',
         controllerAs: 'vm',
         resolve: {

@@ -12,7 +12,8 @@
       title: 'Articles',
       state: 'articles',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['*'],
+      class: 'fa fa-book'
     });
 
     // Add the dropdown list item

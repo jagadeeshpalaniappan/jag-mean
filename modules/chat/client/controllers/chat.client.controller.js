@@ -14,13 +14,10 @@
     vm.messageText = '';
     vm.sendMessage = sendMessage;
 
-    console.log("b4 init");
     init();
-    console.log("aftr init");
 
     function init() {
 
-      console.log("inside init");
 
       // If user is not signed in then redirect back home
       if (!Authentication.user) {

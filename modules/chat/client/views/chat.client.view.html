@@ -1,29 +1,71 @@
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Chat
+
+    <small>Live Chat with your friends</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a ui-sref="home"><i class="fa fa-dashboard"></i> Live Chat</a></li>
+    <li class="active">Live Chat</li>
+  </ol>
+</section>
+
+
 <!-- The chat view -->
-<section class="container">
-  <div class="page-header">
-    <h1>Chat Example</h1>
-  </div>
-  <!-- The message form -->
-  <form class="col-xs-12 col-md-offset-4 col-md-4" ng-submit="vm.sendMessage();">
-    <fieldset class="row">
-      <div class="input-group">
-        <input type="text" id="messageText" name="messageText" class="form-control" ng-model="vm.messageText" placeholder="Enter new message">
+<section class="content">
+
+
+
+  <!-- Chat box -->
+  <div class="box box-success">
+    <div class="box-header">
+      <i class="fa fa-comments-o"></i>
+
+      <h3 class="box-title">Chat</h3>
+
+      <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+        <div class="btn-group" data-toggle="btn-toggle">
+          <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
+          </button>
+          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="box-body chat" id="chat-box">
+      <!-- chat item -->
+      <div class="item" ng-repeat="message in vm.messages | orderBy: '-created':true">
+        <img ng-src="{{message.profileImageURL}}" alt="{{message.username}}" class="online">
+
+        <p class="message">
+          <a href="#" class="name">
+            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{message.created | date:'mediumTime'}} </small>
+            {{::message.username}}
+          </a>
+          {{::message.text}}
+        </p>
+
+        <!-- /.attachment -->
+      </div>
+      <!-- /.item -->
+
+    </div>
+    <!-- /.chat -->
+    <div class="box-footer">
+      <form ng-submit="vm.sendMessage();">
+        <div class="input-group">
+          <input type="text" id="messageText" name="messageText" class="form-control" ng-model="vm.messageText" placeholder="Type message..." autocomplete="off">
         <span class="input-group-btn">
-          <button type="submit" class="btn btn-primary" ng-disabled="!vm.messageText.length">Submit</button>
+          <button type="submit" class="btn btn-success" ng-disabled="!vm.messageText.length"><i class="fa fa-paper-plane"></i></button>
         </span>
-      </div>
-    </fieldset>
-  </form>
-  <ul class="list-unstyled">
-    <!-- List all messages -->
-    <li class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in vm.messages">
-      <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
-      <img ng-src="{{message.profileImageURL}}" alt="{{message.username}}" class="pull-left chat-profile-image" />
-      <div class="pull-left chat-message-details">
-        <strong ng-bind="message.username"></strong>
-        <br>
-        <span ng-bind="message.text"></span>
-      </div>
-    </li>
-  </ul>
+        </div>
+    </form>
+  </div>
+  <!-- /.box (chat box) -->
+
+  </div>
+
+
+
 </section>
