@@ -20,7 +20,7 @@
 
 
 
-  <div data-ng-hide="vm.authentication.user._id == vm.article.user._id">
+  <div data-ng-show="vm.article._id && vm.authentication.user._id !== vm.article.user._id">
 
     <div class="callout callout-danger margin">
       <h4><i class="icon fa fa-ban"></i> You are not Authorized!!</h4>
@@ -32,7 +32,7 @@
 
 
   <!-- Horizontal Form -->
-  <div class="box box-primary" data-ng-show="vm.authentication.user._id == vm.article.user._id">
+  <div class="box box-primary" data-ng-hide="vm.article._id && vm.authentication.user._id !== vm.article.user._id">
     <div class="box-header with-border">
       <h3 class="box-title">{{vm.article._id ? 'Edit Article' : 'Create New Article'}}</h3>
     </div>
