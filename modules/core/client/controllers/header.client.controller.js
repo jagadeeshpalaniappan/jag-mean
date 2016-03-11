@@ -32,7 +32,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
     //console.log(angular.element(document.querySelector('.skin-blue')));
 
 
-    console.log($scope.menu);
+    //console.log($scope.menu);
 
 
     $scope.toggleChild = function(item){
