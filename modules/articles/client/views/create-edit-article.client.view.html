@@ -1,4 +1,5 @@
 
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
 
@@ -18,8 +19,20 @@
 <section class="content">
 
 
+
+  <div data-ng-hide="vm.authentication.user._id == vm.article.user._id">
+
+    <div class="callout callout-danger margin">
+      <h4><i class="icon fa fa-ban"></i> You are not Authorized!!</h4>
+
+      <p>Sorry!! You are not authorized to edit 'Article' created by others.</p>
+    </div>
+
+  </div>
+
+
   <!-- Horizontal Form -->
-  <div class="box box-primary">
+  <div class="box box-primary" data-ng-show="vm.authentication.user._id == vm.article.user._id">
     <div class="box-header with-border">
       <h3 class="box-title">{{vm.article._id ? 'Edit Article' : 'Create New Article'}}</h3>
     </div>

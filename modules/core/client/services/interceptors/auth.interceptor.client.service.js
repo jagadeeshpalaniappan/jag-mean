@@ -2,6 +2,8 @@
 
 angular.module('core').factory('authInterceptor', ['$q', '$injector', 'Authentication',
   function ($q, $injector, Authentication) {
+
+
     return {
       responseError: function(rejection) {
         if (!rejection.config.ignoreAuthModule) {
@@ -16,9 +18,14 @@ angular.module('core').factory('authInterceptor', ['$q', '$injector', 'Authentic
               break;
           }
         }
+
+
+
         // otherwise, default behaviour
         return $q.reject(rejection);
       }
     };
+
+
   }
 ]);
