@@ -11,4 +11,3 @@ applications:
     - mean-mongo
   env:
     NODE_ENV: cloud-foundry
-    PATH: /opt/IBM/node-v0.12/bin:$PATH
